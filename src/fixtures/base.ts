@@ -149,7 +149,6 @@ export const test = base.extend<
         ? {
             username: theInternet.basicAuthUsername,
             password: theInternet.basicAuthPassword,
-            origin: new URL(urls.theInternet).origin,
           }
         : httpCredentials,
     );
