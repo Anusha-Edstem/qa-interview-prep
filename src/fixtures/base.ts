@@ -1,5 +1,14 @@
 import { test as base, expect } from "@playwright/test";
+import { FruitsPage } from "@pages/mocking/FruitsPage";
 
-export const test = base.extend<object>({});
+type Fixtures = {
+  fruitsPage: FruitsPage;
+};
+
+export const test = base.extend<Fixtures>({
+  fruitsPage: async ({ page }, use) => {
+    await use(new FruitsPage(page));
+  },
+});
 
 export { expect };
