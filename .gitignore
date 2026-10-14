@@ -7,3 +7,4 @@ node_modules/
 /playwright/.auth/
 .env
 *.log
+/.claude/worktrees/
