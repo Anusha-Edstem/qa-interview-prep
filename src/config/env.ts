@@ -43,6 +43,15 @@ export const booker = {
   },
 };
 
+export const theInternet = {
+  get basicAuthUsername(): string {
+    return required("BASIC_AUTH_USERNAME");
+  },
+  get basicAuthPassword(): string {
+    return required("BASIC_AUTH_PASSWORD");
+  },
+};
+
 export const isCI = !!process.env.CI;
 
 export const harUpdate = optional("HAR_UPDATE", "0") === "1";
