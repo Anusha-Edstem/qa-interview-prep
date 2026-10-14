@@ -44,3 +44,5 @@ export const booker = {
 };
 
 export const isCI = !!process.env.CI;
+
+export const harUpdate = optional("HAR_UPDATE", "0") === "1";

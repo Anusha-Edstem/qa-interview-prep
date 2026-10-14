@@ -2,13 +2,13 @@
 
 Five Playwright Test suites in TypeScript, one per question, each shipped as its own pull request.
 
-| #   | Question                | PR link                                                         |
-| --- | ----------------------- | --------------------------------------------------------------- |
-| 1   | UI Checkout Flow        | [#8](https://github.com/Anusha-Edstem/qa-interview-prep/pull/8) |
-| 2   | API Booking Tests       | [#9](https://github.com/Anusha-Edstem/qa-interview-prep/pull/9) |
-| 3   | Network Mocking         |                                                                 |
-| 4   | Tricky UI Interactions  |                                                                 |
-| 5   | CI Pipeline & Reporting |                                                                 |
+| #   | Question                | PR link                                                           |
+| --- | ----------------------- | ----------------------------------------------------------------- |
+| 1   | UI Checkout Flow        | [#8](https://github.com/Anusha-Edstem/qa-interview-prep/pull/8)   |
+| 2   | API Booking Tests       | [#9](https://github.com/Anusha-Edstem/qa-interview-prep/pull/9)   |
+| 3   | Network Mocking         | [#10](https://github.com/Anusha-Edstem/qa-interview-prep/pull/10) |
+| 4   | Tricky UI Interactions  |                                                                   |
+| 5   | CI Pipeline & Reporting |                                                                   |
 
 **Video:**
 

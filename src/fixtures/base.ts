@@ -6,6 +6,7 @@ import { CartPage } from "@pages/saucedemo/cart-page";
 import { CheckoutPage } from "@pages/saucedemo/checkout-page";
 import { InventoryPage } from "@pages/saucedemo/inventory-page";
 import { LoginPage } from "@pages/saucedemo/login-page";
+import { FruitsPage } from "@pages/mocking/FruitsPage";
 
 type SauceDemoFixtures = {
   loginPage: LoginPage;
@@ -13,6 +14,10 @@ type SauceDemoFixtures = {
   cartPage: CartPage;
   checkoutPage: CheckoutPage;
   signedInInventoryPage: InventoryPage;
+};
+
+type MockingFixtures = {
+  fruitsPage: FruitsPage;
 };
 
 export interface TrackedBookings {
@@ -33,7 +38,11 @@ interface BookerFixtures {
 
 const alreadyGone = new Set([201, 404, 405]);
 
-export const test = base.extend<SauceDemoFixtures & BookerFixtures>({
+export const test = base.extend<SauceDemoFixtures & BookerFixtures & MockingFixtures>({
+  fruitsPage: async ({ page }, use) => {
+    await use(new FruitsPage(page));
+  },
+
   loginPage: async ({ page }, use) => {
     await use(new LoginPage(page));
   },
