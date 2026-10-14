@@ -55,8 +55,9 @@ export async function failFruitList(page: Page): Promise<void> {
 
 export async function delayFruitList(page: Page, delayMs: number): Promise<void> {
   await page.route(fruitsApi, async (route) => {
+    const response = await route.fetch();
     await new Promise((resolve) => setTimeout(resolve, delayMs));
-    await route.continue();
+    await route.fulfill({ response });
   });
 }
 
