@@ -1,6 +1,8 @@
 import { defineConfig, devices } from "@playwright/test";
 import { isCI } from "./src/config/env";
 
+process.env.PLAYWRIGHT_NO_COPY_PROMPT = "1";
+
 export default defineConfig({
   testDir: "tests",
   fullyParallel: true,
