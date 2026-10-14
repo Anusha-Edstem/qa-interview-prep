@@ -8,7 +8,7 @@ Five Playwright Test suites in TypeScript, one per question, each shipped as its
 | 2   | API Booking Tests       | [#9](https://github.com/Anusha-Edstem/qa-interview-prep/pull/9)   |
 | 3   | Network Mocking         | [#10](https://github.com/Anusha-Edstem/qa-interview-prep/pull/10) |
 | 4   | Tricky UI Interactions  | [#12](https://github.com/Anusha-Edstem/qa-interview-prep/pull/12) |
-| 5   | CI Pipeline & Reporting |                                                                   |
+| 5   | CI Pipeline & Reporting | [#13](https://github.com/Anusha-Edstem/qa-interview-prep/pull/13) |
 
 **Video:**
 
@@ -65,6 +65,17 @@ tests/smoke/           @smoke specs
 tests/regression/      @regression specs, one folder per module
 docs/e2e-scenarios.md  the scenario catalogue specs cite by ID
 ```
+
+## Continuous integration
+
+`.github/workflows/playwright.yml` runs on every pull request, every push to `main` and on demand:
+
+- Four parallel shards (`--shard=i/4`) across Chromium, Firefox, WebKit, a Pixel 7 project for Sauce Demo, and the request-only `api` project for Restful Booker.
+- The shard blob reports are merged into one HTML report, uploaded as the `playwright-report` artifact.
+- The job summary shows passed, failed, flaky and skipped counts, and lists every failed or flaky test.
+- Retries happen only in CI, once; trace, screenshot and video are kept only for failed tests.
+- **Run workflow** with `tag` set to `@smoke` or `@regression` runs only that tag.
+- Passwords come from GitHub Secrets (`SAUCE_PASSWORD`, `BOOKER_PASSWORD`, `BASIC_AUTH_PASSWORD`); usernames from repository variables.
 
 ## Quality gates
 
