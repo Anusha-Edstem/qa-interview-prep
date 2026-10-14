@@ -1,5 +1,7 @@
 import { defineConfig, devices } from "@playwright/test";
-import { isCI } from "./src/config/env";
+import { isCI, urls } from "./src/config/env";
+
+const apiSpecs = /booker-.*\.spec\.ts$/;
 
 process.env.PLAYWRIGHT_NO_COPY_PROMPT = "1";
 
@@ -20,17 +22,26 @@ export default defineConfig({
     { name: "setup", testDir: "src/setup", testMatch: /health\.ts$/ },
     {
       name: "chromium",
+      testIgnore: apiSpecs,
       use: { ...devices["Desktop Chrome"] },
       dependencies: ["setup"],
     },
     {
       name: "firefox",
+      testIgnore: apiSpecs,
       use: { ...devices["Desktop Firefox"] },
       dependencies: ["setup"],
     },
     {
       name: "webkit",
+      testIgnore: apiSpecs,
       use: { ...devices["Desktop Safari"] },
+      dependencies: ["setup"],
+    },
+    {
+      name: "api",
+      testMatch: apiSpecs,
+      use: { baseURL: urls.restfulBooker, trace: "off" },
       dependencies: ["setup"],
     },
   ],

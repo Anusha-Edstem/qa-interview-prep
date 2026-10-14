@@ -34,4 +34,13 @@ export const sauceDemo = {
   },
 };
 
+export const booker = {
+  get username(): string {
+    return required("BOOKER_USERNAME");
+  },
+  get password(): string {
+    return required("BOOKER_PASSWORD");
+  },
+};
+
 export const isCI = !!process.env.CI;
