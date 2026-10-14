@@ -41,7 +41,7 @@ export default defineConfig({
     {
       name: "api",
       testMatch: apiSpecs,
-      use: { baseURL: urls.restfulBooker },
+      use: { baseURL: urls.restfulBooker, trace: "off" },
       dependencies: ["setup"],
     },
   ],
