@@ -64,7 +64,10 @@ type TheInternetFixtures = {
 };
 
 function isTheInternetNoise(url: URL): boolean {
-  return url.hostname.endsWith("optimizely.com") || /\/(js\/vendor\/\d+\.js|img\/)/.test(url.pathname);
+  return (
+    url.hostname.endsWith("optimizely.com") ||
+    /\/(js\/vendor\/\d+\.js|js\/vendor\/(jquery-ui|dropzone)|js\/foundation\/|css\/|img\/)/.test(url.pathname)
+  );
 }
 
 export const test = base.extend<
