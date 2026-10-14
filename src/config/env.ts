@@ -22,4 +22,13 @@ export const urls = {
   theInternet: optional("THE_INTERNET_URL", "https://the-internet.herokuapp.com"),
 } as const;
 
+export const theInternet = {
+  get basicAuthUsername(): string {
+    return required("BASIC_AUTH_USERNAME");
+  },
+  get basicAuthPassword(): string {
+    return required("BASIC_AUTH_PASSWORD");
+  },
+};
+
 export const isCI = !!process.env.CI;
