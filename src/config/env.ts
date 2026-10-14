@@ -23,3 +23,5 @@ export const urls = {
 } as const;
 
 export const isCI = !!process.env.CI;
+
+export const harUpdate = optional("HAR_UPDATE", "0") === "1";
