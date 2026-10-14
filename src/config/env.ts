@@ -22,6 +22,27 @@ export const urls = {
   theInternet: optional("THE_INTERNET_URL", "https://the-internet.herokuapp.com"),
 } as const;
 
+export const sauceDemo = {
+  get standardUser(): string {
+    return required("SAUCE_STANDARD_USER");
+  },
+  get lockedOutUser(): string {
+    return required("SAUCE_LOCKED_OUT_USER");
+  },
+  get password(): string {
+    return required("SAUCE_PASSWORD");
+  },
+};
+
+export const booker = {
+  get username(): string {
+    return required("BOOKER_USERNAME");
+  },
+  get password(): string {
+    return required("BOOKER_PASSWORD");
+  },
+};
+
 export const theInternet = {
   get basicAuthUsername(): string {
     return required("BASIC_AUTH_USERNAME");
@@ -32,3 +53,5 @@ export const theInternet = {
 };
 
 export const isCI = !!process.env.CI;
+
+export const harUpdate = optional("HAR_UPDATE", "0") === "1";
