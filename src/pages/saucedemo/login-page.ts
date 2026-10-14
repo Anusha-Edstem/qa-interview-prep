@@ -24,7 +24,16 @@ export class LoginPage {
 
   async login(username: string, password: string): Promise<void> {
     await this.username.fill(username);
-    await this.password.fill(password);
+    await this.enterSecret(this.password, password);
     await this.loginButton.click();
+  }
+
+  private async enterSecret(field: Locator, value: string): Promise<void> {
+    await field.evaluate((element, secret) => {
+      const input = element as HTMLInputElement;
+      const setValue = Object.getOwnPropertyDescriptor(HTMLInputElement.prototype, "value")?.set;
+      setValue?.call(input, secret);
+      input.dispatchEvent(new Event("input", { bubbles: true }));
+    }, value);
   }
 }
