@@ -27,6 +27,13 @@ export default tseslint.config(
       "@typescript-eslint/no-floating-promises": "error",
       "@typescript-eslint/await-thenable": "error",
       "@typescript-eslint/no-misused-promises": "error",
+      "no-restricted-properties": [
+        "error",
+        {
+          property: "waitForTimeout",
+          message: "Fixed waits are banned. Use a web-first assertion such as expect(locator).toBeVisible().",
+        },
+      ],
     },
   },
   {
@@ -39,6 +46,7 @@ export default tseslint.config(
       "playwright/no-force-option": "error",
       "playwright/no-conditional-in-test": "error",
       "playwright/no-conditional-expect": "error",
+      "playwright/no-wait-for-timeout": "error",
     },
   },
 );
